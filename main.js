@@ -107,41 +107,22 @@ let selectedAnswers = [];
 let timer = null;
 let timeLeft = 60;
 
-function renderInstructions() {
-  document.getElementById("app").innerHTML = `
-    <div class="instruction-page">
-      <h1>Quiz Instructions</h1>
-      <ul>
-        <li>✅ Total 30 questions, single correct option</li>
-        <li>🕒 Each question is timed</li>
-        <li>➡ Use Next/Previous or Navigation Panel</li>
-        <li>📝 Mark for Review available</li>
-        <li>🚫 Final submission can't be undone</li>
-      </ul>
-      <button onclick="startQuiz()">Start Quiz</button>
-    </div>
-  `;
-}
-
 function renderMenu() {
-  document.getElementById("app").innerHTML = `
-    <div class="menu">
-      <h1>Welcome to PM SHRI JNV Computer Quiz</h1>
-      <form id="loginForm">
-        <input type="text" id="studentName" placeholder="Enter your name" required />
-        <input type="text" id="rollNumber" placeholder="Enter roll number" required />
-        <button type="submit">Start Quiz</button>
-      </form>
-    </div>
+  app.innerHTML = `
+    <h1>${schoolTitle}</h1>
+    <h2>Welcome to the Computer Quiz</h2>
+    <form id="studentForm">
+      <input id="roll" placeholder="Roll Number" required />
+      <input id="name" placeholder="Name" required />
+      <select id="class">
+        <option value="7">Class 7</option>
+        <option value="8">Class 8</option>
+      </select>
+      <button>Start Quiz</button>
+    </form>
+    <button onclick="renderTeacherLogin()">Teacher Login</button>
   `;
-
-  document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    // Save login data
-    studentName = document.getElementById("studentName").value.trim();
-    rollNumber = document.getElementById("rollNumber").value.trim();
-    renderInstructions(); // 👈 SHOW INSTRUCTIONS AFTER LOGIN
-  });
+  document.getElementById("studentForm").onsubmit = startQuiz;
 }
 
 function startQuiz(e) {
@@ -330,3 +311,4 @@ function resetResults() {
 }
 
 renderMenu();
+
