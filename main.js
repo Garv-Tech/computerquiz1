@@ -110,7 +110,7 @@ let timeLeft = 60;
 function renderMenu() {
   app.innerHTML = `
     <h1>${schoolTitle}</h1>
-    <h2>Welcome to the Computer Quiz</h2>
+    <h2>Computer Quiz prepared by Mr. Jaydeep Singh, TGT CS, JNV Kanpur Dehat</h2>
     <form id="studentForm">
       <input id="roll" placeholder="Roll Number" required />
       <input id="name" placeholder="Name" required />
